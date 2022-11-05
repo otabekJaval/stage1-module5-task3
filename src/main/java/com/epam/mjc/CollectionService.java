@@ -1,8 +1,10 @@
 package com.epam.mjc;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class CollectionService {
@@ -10,13 +12,13 @@ public class CollectionService {
     public List<Integer> filterEvenNumbers(List<Integer> list) {
         return list.stream()
                 .filter(integer -> integer % 2 == 0)
-                .toList();
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
     public List<String> toUpperCaseCollection(List<String> list) {
         return list.stream()
                 .map(String::toUpperCase)
-                .toList();
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
     public Optional<Integer> findMax(List<Integer> list) {
